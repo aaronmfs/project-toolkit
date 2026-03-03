@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-toolkit"
+version = "0.0.1"
+description = "Developer toolkit for automating project setup and development workflows"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "aaronmfs" }
+]
+dependencies = [
+    "requests",
+    "typer",
+    "packaging"
+]
+
+[project.scripts]
+project = "project_toolkit.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

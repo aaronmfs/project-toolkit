@@ -1,0 +1,5 @@
+templates/
+src/project_toolkit.egg-info/
+src/project_toolkit/__pycache__/
+src/project_toolkit/core/__pycache__/
+docker-compose.yml
