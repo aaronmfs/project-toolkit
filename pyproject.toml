@@ -23,5 +23,8 @@ project = "project_toolkit.cli:main"
 [tool.setuptools]
 package-dir = {"" = "src"}
 
+[tool.setuptools.package-data]
+"project_toolkit" = ["templates/**/*"]
+
 [tool.setuptools.packages.find]
 where = ["src"]

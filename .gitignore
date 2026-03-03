@@ -1,5 +1,30 @@
-templates/
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
 src/project_toolkit.egg-info/
 src/project_toolkit/__pycache__/
 src/project_toolkit/core/__pycache__/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tools
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
 docker-compose.yml

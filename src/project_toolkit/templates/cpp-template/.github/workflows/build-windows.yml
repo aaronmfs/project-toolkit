@@ -1,0 +1,35 @@
+name: Build Windows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      - name: Download WebView2 SDK
+        run: |
+          Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.2792.45" -OutFile webview2.zip
+          Expand-Archive webview2.zip -DestinationPath lib/webview2
+        shell: pwsh
+      
+      - name: Setup MSVC
+        uses: microsoft/setup-msbuild@v2
+      
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+      
+      - name: Build
+        run: cmake --build build --config Release
+      
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: bank_account_system-windows
+          path: build/bin/Release
